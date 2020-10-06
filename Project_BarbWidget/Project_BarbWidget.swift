@@ -45,12 +45,16 @@ struct Project_BarbWidgetEntryView : View {
     
     var body: some View {
         ZStack {
-            Color(.systemYellow).opacity(0.6)
             Text("Good morning, Sam")
                 .font(.system(.title2, design: .default))
+                .foregroundColor(.white)
                 .bold()
-                .position(x: /*@START_MENU_TOKEN@*/85.0/*@END_MENU_TOKEN@*/, y: 120.0)
-        }
+                .position(x: /*@START_MENU_TOKEN@*/85.0/*@END_MENU_TOKEN@*/, y: 130.0)
+        }.background((Image("MugBGTest"))
+                        .resizable()
+                        .scaledToFill()
+                        .brightness(-0.25)
+        )
     }
 }
 
