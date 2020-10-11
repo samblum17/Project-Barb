@@ -40,7 +40,7 @@ struct Category: Identifiable, Hashable, Codable {
     //default init
     init() {
         id = 0
-        family = "Small/Medium"
+        family = "Small"
         quotes = []
     }
     //decoder init

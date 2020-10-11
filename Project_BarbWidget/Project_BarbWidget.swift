@@ -9,7 +9,7 @@ import WidgetKit
 import SwiftUI
 import Intents
 
-let globalDefaultQuote = "Think Different."
+let globalDefaultQuote = "\"Think Different.\""
 
 //Main widget entry point, info
 @main
@@ -34,13 +34,26 @@ struct SteveEntry: TimelineEntry {
 //Widget view
 struct QuoteView : View {
     var entry: Provider.Entry
+    @Environment(\.widgetFamily) var family: WidgetFamily
     
     var body: some View {
-        ZStack {
-            Color(.systemBackground)
-            Text(entry.quote)
-                .font(.system(.title, design: .rounded))
-                .padding(.horizontal)
+        GeometryReader{g in
+            ZStack {
+                Color(.systemBackground)
+                if family != .systemLarge {
+                    Text(entry.quote)
+                        .font(.system(.title2, design: .rounded))
+                        //Not actually setting to italic() below but this is a workaround to show quote in full widget view with padding and wrap around on longer quotes
+                        .italic()
+                        .padding(.horizontal)
+                } else {
+                    Text(entry.quote)
+                        .font(.system(.title, design: .rounded))
+                        //Not actually setting to italic() below but this is a workaround to show quote in full widget view with padding and wrap around on longer quotes
+                        .italic()
+                        .padding(.horizontal)
+                }
+            }
         }
     }
 }
@@ -48,7 +61,7 @@ struct QuoteView : View {
 //Timeline
 struct Provider: TimelineProvider {
     let fetcher = FetchDecodedJSON()
-
+    
     func placeholder(in context: Context) -> SteveEntry {
         SteveEntry(date: Date(), quote: globalDefaultQuote)
     }
@@ -66,13 +79,13 @@ struct Provider: TimelineProvider {
         
         // Generate a timeline consisting of 3 entries a day apart, starting from the current date.
         let currentDate = Date()
-        for secondsOffset in 0 ..< 5 {
+        for daysOffset in 0 ..< 3 {
             switch family {
             case .systemSmall:
                 let randomQuote = fetcher.categories[0].quotes.randomElement()
                 quote = randomQuote ?? errorQuote
             case .systemMedium:
-                let randomQuote = fetcher.categories[0].quotes.randomElement()
+                let randomQuote = fetcher.categories[1].quotes.randomElement()
                 quote = randomQuote ?? errorQuote
             case .systemLarge:
                 let randomQuote = fetcher.categories[1].quotes.randomElement()
@@ -81,16 +94,10 @@ struct Provider: TimelineProvider {
                 quote = errorQuote
             }
             
-            let entryDate = Calendar.current.date(byAdding: .second, value: secondsOffset, to: currentDate)!
+            let entryDate = Calendar.current.date(byAdding: .day, value: daysOffset, to: currentDate)!
             let entry = SteveEntry(date: entryDate, quote: quote)
             entries.append(entry)
         }
-//FIXME- UPDATE OFFSET TO BELOW FOR PROD.
-//        for dayOffset in 0 ..< 3 {
-//            let entryDate = Calendar.current.date(byAdding: .day, value: dayOffset, to: currentDate)!
-//            let entry = SteveEntry(date: entryDate)
-//            entries.append(entry)
-//        }
         
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
@@ -102,8 +109,6 @@ struct Project_BarbWidget_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             QuoteView(entry: SteveEntry(date: Date(), quote: globalDefaultQuote)).colorScheme(.dark)
-                .previewContext(WidgetPreviewContext(family: .systemSmall))
-            QuoteView(entry: SteveEntry(date: Date(), quote: globalDefaultQuote)).colorScheme(.light)
                 .previewContext(WidgetPreviewContext(family: .systemSmall))
             QuoteView(entry: SteveEntry(date: Date(), quote: globalDefaultQuote)).colorScheme(.light)
                 .previewContext(WidgetPreviewContext(family: .systemMedium))
