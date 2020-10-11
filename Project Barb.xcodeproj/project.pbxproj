@@ -20,6 +20,18 @@
 		E47E8EBB252C317A00CB768A /* Project_BarbWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E47E8EB7252C317600CB768A /* Project_BarbWidget.intentdefinition */; };
 		E47E8EBC252C317A00CB768A /* Project_BarbWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E47E8EB7252C317600CB768A /* Project_BarbWidget.intentdefinition */; };
 		E47E8EBF252C317A00CB768A /* Project_BarbWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E47E8EAE252C317600CB768A /* Project_BarbWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E4B45F952532D7C1002500BB /* RawJSONData.json in Resources */ = {isa = PBXBuildFile; fileRef = E4B45F942532D7C1002500BB /* RawJSONData.json */; };
+		E4B45F962532D7C1002500BB /* RawJSONData.json in Resources */ = {isa = PBXBuildFile; fileRef = E4B45F942532D7C1002500BB /* RawJSONData.json */; };
+		E4B45F972532D7C1002500BB /* RawJSONData.json in Resources */ = {isa = PBXBuildFile; fileRef = E4B45F942532D7C1002500BB /* RawJSONData.json */; };
+		E4B45F982532D7C1002500BB /* RawJSONData.json in Resources */ = {isa = PBXBuildFile; fileRef = E4B45F942532D7C1002500BB /* RawJSONData.json */; };
+		E4B45F9E2532DD16002500BB /* FetchDecodedJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B45F9D2532DD16002500BB /* FetchDecodedJSON.swift */; };
+		E4B45F9F2532DD16002500BB /* FetchDecodedJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B45F9D2532DD16002500BB /* FetchDecodedJSON.swift */; };
+		E4B45FA02532DD16002500BB /* FetchDecodedJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B45F9D2532DD16002500BB /* FetchDecodedJSON.swift */; };
+		E4B45FA12532DD16002500BB /* FetchDecodedJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B45F9D2532DD16002500BB /* FetchDecodedJSON.swift */; };
+		E4B45FAA2532DDFE002500BB /* Custom Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B45FA92532DDFE002500BB /* Custom Types.swift */; };
+		E4B45FAB2532DDFE002500BB /* Custom Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B45FA92532DDFE002500BB /* Custom Types.swift */; };
+		E4B45FAC2532DDFE002500BB /* Custom Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B45FA92532DDFE002500BB /* Custom Types.swift */; };
+		E4B45FAD2532DDFE002500BB /* Custom Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4B45FA92532DDFE002500BB /* Custom Types.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +92,9 @@
 		E47E8EB7252C317600CB768A /* Project_BarbWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Project_BarbWidget.intentdefinition; sourceTree = "<group>"; };
 		E47E8EB8252C317A00CB768A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E47E8EBA252C317A00CB768A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4B45F942532D7C1002500BB /* RawJSONData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RawJSONData.json; sourceTree = "<group>"; };
+		E4B45F9D2532DD16002500BB /* FetchDecodedJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchDecodedJSON.swift; sourceTree = "<group>"; };
+		E4B45FA92532DDFE002500BB /* Custom Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Types.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,10 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				E42F65CD2529920B00D6E159 /* Project Barb */,
-				E42F65DF2529920E00D6E159 /* Project BarbTests */,
-				E42F65EA2529920E00D6E159 /* Project BarbUITests */,
 				E47E8EB4252C317600CB768A /* Project_BarbWidget */,
-				E47E8EAF252C317600CB768A /* Frameworks */,
 				E42F65CC2529920B00D6E159 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -142,11 +154,9 @@
 		E42F65CD2529920B00D6E159 /* Project Barb */ = {
 			isa = PBXGroup;
 			children = (
-				E42F65CE2529920B00D6E159 /* Project_BarbApp.swift */,
-				E42F65D02529920B00D6E159 /* ContentView.swift */,
-				E42F65D22529920E00D6E159 /* Assets.xcassets */,
-				E42F65D72529920E00D6E159 /* Info.plist */,
-				E42F65D42529920E00D6E159 /* Preview Content */,
+				E4B45FA72532DD61002500BB /* Views */,
+				E4B45FA62532DD44002500BB /* Data and Types */,
+				E4B45FA82532DDB2002500BB /* Helpers */,
 			);
 			path = "Project Barb";
 			sourceTree = "<group>";
@@ -162,6 +172,7 @@
 		E42F65DF2529920E00D6E159 /* Project BarbTests */ = {
 			isa = PBXGroup;
 			children = (
+				E42F65EA2529920E00D6E159 /* Project BarbUITests */,
 				E42F65E02529920E00D6E159 /* Project_BarbTests.swift */,
 				E42F65E22529920E00D6E159 /* Info.plist */,
 			);
@@ -184,6 +195,7 @@
 				E47E8EB2252C317600CB768A /* SwiftUI.framework */,
 			);
 			name = Frameworks;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		E47E8EB4252C317600CB768A /* Project_BarbWidget */ = {
@@ -195,6 +207,38 @@
 				E47E8EBA252C317A00CB768A /* Info.plist */,
 			);
 			path = Project_BarbWidget;
+			sourceTree = "<group>";
+		};
+		E4B45FA62532DD44002500BB /* Data and Types */ = {
+			isa = PBXGroup;
+			children = (
+				E4B45F942532D7C1002500BB /* RawJSONData.json */,
+				E4B45F9D2532DD16002500BB /* FetchDecodedJSON.swift */,
+				E4B45FA92532DDFE002500BB /* Custom Types.swift */,
+			);
+			path = "Data and Types";
+			sourceTree = "<group>";
+		};
+		E4B45FA72532DD61002500BB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E42F65CE2529920B00D6E159 /* Project_BarbApp.swift */,
+				E42F65D02529920B00D6E159 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E4B45FA82532DDB2002500BB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E42F65D22529920E00D6E159 /* Assets.xcassets */,
+				E42F65D72529920E00D6E159 /* Info.plist */,
+				E42F65DF2529920E00D6E159 /* Project BarbTests */,
+				E42F65D42529920E00D6E159 /* Preview Content */,
+				E47E8EAF252C317600CB768A /* Frameworks */,
+			);
+			name = Helpers;
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42F65D62529920E00D6E159 /* Preview Assets.xcassets in Resources */,
+				E4B45F952532D7C1002500BB /* RawJSONData.json in Resources */,
 				E42F65D32529920E00D6E159 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B45F962532D7C1002500BB /* RawJSONData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B45F972532D7C1002500BB /* RawJSONData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B45F982532D7C1002500BB /* RawJSONData.json in Resources */,
 				E47E8EB9252C317A00CB768A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,7 +406,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E47E8EBC252C317A00CB768A /* Project_BarbWidget.intentdefinition in Sources */,
+				E4B45F9E2532DD16002500BB /* FetchDecodedJSON.swift in Sources */,
 				E42F65D12529920B00D6E159 /* ContentView.swift in Sources */,
+				E4B45FAA2532DDFE002500BB /* Custom Types.swift in Sources */,
 				E42F65CF2529920B00D6E159 /* Project_BarbApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +418,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42F65E12529920E00D6E159 /* Project_BarbTests.swift in Sources */,
+				E4B45FAB2532DDFE002500BB /* Custom Types.swift in Sources */,
+				E4B45F9F2532DD16002500BB /* FetchDecodedJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +428,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42F65EC2529920E00D6E159 /* Project_BarbUITests.swift in Sources */,
+				E4B45FAC2532DDFE002500BB /* Custom Types.swift in Sources */,
+				E4B45FA02532DD16002500BB /* FetchDecodedJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +437,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B45FAD2532DDFE002500BB /* Custom Types.swift in Sources */,
+				E4B45FA12532DD16002500BB /* FetchDecodedJSON.swift in Sources */,
 				E47E8EB6252C317600CB768A /* Project_BarbWidget.swift in Sources */,
 				E47E8EBB252C317A00CB768A /* Project_BarbWidget.intentdefinition in Sources */,
 			);
