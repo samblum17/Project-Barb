@@ -11,7 +11,7 @@ import Combine
 
 //Class for fetching data from API to load into main content view
 
-class FetchDecodedJSON: ObservableObject {
+class FetchDecodedJSON {
     
     var categories = [Category()]
     
@@ -33,5 +33,6 @@ class FetchDecodedJSON: ObservableObject {
 //Store into variables for use in main content view
         let nestedIgnore = quotesData
         self.categories = nestedIgnore[0].data! //force unwrap for testing
+        print(categories)
     }
 }

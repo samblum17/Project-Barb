@@ -9,63 +9,93 @@ import WidgetKit
 import SwiftUI
 import Intents
 
-//Main widget entry point
+let globalDefaultQuote = "\"Think Different.\""
+
+//Main widget entry point, info
 @main
 struct Project_BarbWidget: Widget {
     let kind: String = "Project_BarbWidget"
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            Project_BarbWidgetEntryView(entry: entry)
+            QuoteView(entry: entry)
         }
-        .configurationDisplayName("- Steve Widget")
-        .description("Get daily, inspirational quotes from Steve Jobs delivered straight to your home screen. Tap the widget to view a list of some of Steve's most memorable quotes.")
+        .configurationDisplayName("Quote Widget")
+        .description("Get inspirational quotes from Steve Jobs delivered straight to your home screen. The widget intelligently cycles through some of Steve's most memorable quotes every few days. Tap the widget to open the app and expand today's quote.")
     }
 }
 
 //Provider type
 struct SteveEntry: TimelineEntry {
     let date: Date
+    let quote: String
 }
 
 //Widget view
-struct Project_BarbWidgetEntryView : View {
+struct QuoteView : View {
     var entry: Provider.Entry
+    @Environment(\.widgetFamily) var family: WidgetFamily
     
     var body: some View {
-        ZStack {
-            Text("Good morning, Sam")
-                .font(.system(.title2, design: .default))
-                .foregroundColor(.white)
-                .bold()
-                .position(x: /*@START_MENU_TOKEN@*/85.0/*@END_MENU_TOKEN@*/, y: 130.0)
-        }.background((Image("MugBGTest"))
-                        .resizable()
-                        .scaledToFill()
-                        .brightness(-0.25)
-        )
+        GeometryReader{g in
+            ZStack {
+                Color(.systemBackground)
+                if family != .systemLarge {
+                    Text(entry.quote)
+                        .font(.system(.title2, design: .rounded))
+                        //Not actually setting to italic() below but this is a workaround to show quote in full widget view with padding and wrap around on longer quotes
+                        .italic()
+                        .padding(.horizontal)
+                } else {
+                    Text(entry.quote)
+                        .font(.system(.title, design: .rounded))
+                        //Not actually setting to italic() below but this is a workaround to show quote in full widget view with padding and wrap around on longer quotes
+                        .italic()
+                        .padding(.horizontal)
+                }
+            }
+        }
     }
 }
 
 //Timeline
 struct Provider: TimelineProvider {
+    let fetcher = FetchDecodedJSON()
+    
     func placeholder(in context: Context) -> SteveEntry {
-        SteveEntry(date: Date())
+        SteveEntry(date: Date(), quote: globalDefaultQuote)
     }
     
     func getSnapshot(in context: Context, completion: @escaping (SteveEntry) -> ()) {
-        let entry = SteveEntry(date: Date())
+        let entry = SteveEntry(date: Date(), quote: globalDefaultQuote)
         completion(entry)
     }
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<SteveEntry>) -> ()) {
         var entries: [SteveEntry] = []
+        let family = context.family
+        let errorQuote = "Default empty quote. Error has occurred."
+        var quote: String = errorQuote
         
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        // Generate a timeline consisting of 3 entries a day apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SteveEntry(date: entryDate)
+        for daysOffset in 0 ..< 3 {
+            switch family {
+            case .systemSmall:
+                let randomQuote = fetcher.categories[0].quotes.randomElement()
+                quote = randomQuote ?? errorQuote
+            case .systemMedium:
+                let randomQuote = fetcher.categories[1].quotes.randomElement()
+                quote = randomQuote ?? errorQuote
+            case .systemLarge:
+                let randomQuote = fetcher.categories[1].quotes.randomElement()
+                quote = randomQuote ?? errorQuote
+            default:
+                quote = errorQuote
+            }
+            
+            let entryDate = Calendar.current.date(byAdding: .day, value: daysOffset, to: currentDate)!
+            let entry = SteveEntry(date: entryDate, quote: quote)
             entries.append(entry)
         }
         
@@ -77,7 +107,13 @@ struct Provider: TimelineProvider {
 
 struct Project_BarbWidget_Previews: PreviewProvider {
     static var previews: some View {
-        Project_BarbWidgetEntryView(entry: SteveEntry(date: Date()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        Group {
+            QuoteView(entry: SteveEntry(date: Date(), quote: globalDefaultQuote)).colorScheme(.dark)
+                .previewContext(WidgetPreviewContext(family: .systemSmall))
+            QuoteView(entry: SteveEntry(date: Date(), quote: globalDefaultQuote)).colorScheme(.light)
+                .previewContext(WidgetPreviewContext(family: .systemMedium))
+            QuoteView(entry: SteveEntry(date: Date(), quote: globalDefaultQuote)).colorScheme(.light)
+                .previewContext(WidgetPreviewContext(family: .systemLarge))
+        }
     }
 }

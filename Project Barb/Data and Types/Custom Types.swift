@@ -23,6 +23,7 @@ struct NestedJSON: Identifiable, Hashable, Codable {
         self.id = try valueContainer.decode(Int.self, forKey:CodingKeys.id)
         self.data = try valueContainer.decode([Category].self, forKey:CodingKeys.data)
     }
+}
 
 //Each category corresponds to a widget size family and includes the array of quotes (strings) for that family
 struct Category: Identifiable, Hashable, Codable {
@@ -39,8 +40,8 @@ struct Category: Identifiable, Hashable, Codable {
     //default init
     init() {
         id = 0
-        family = "Small/Medium"
-        quotes = ["Hi, I'm Steve."]
+        family = "Small"
+        quotes = []
     }
     //decoder init
     init(from decoder: Decoder) throws {
@@ -51,3 +52,4 @@ struct Category: Identifiable, Hashable, Codable {
         self.quotes = try valueContainer.decode([String].self, forKey: CodingKeys.quotes)
     }
 }
+

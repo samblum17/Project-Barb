@@ -5,19 +5,20 @@
         [
             {
                 "id" : 0,
-                "Family" : "Small/Medium",
+                "Family" : "Small",
                 "Quotes" : [
-                    "Quality is more important than quantity. One home run is much better than two doubles.",
-                    "I want to put a ding in the universe.",
-                    "Innovation distinguishes between a leader and a follower.",
-                    "A lot of times, people don't know what they want unless you show it to them."
+                    "\"Think Different.\"",
+                    "\"I want to put a ding in the universe.\"",
                 ]
             },
             {
                 "id" : 1,
-                "Family" : "Large",
+                "Family" : "Medium/Large",
                 "Quotes" : [
-                    "“Being the richest man in the cemetery doesn’t matter to me. Going to bed at night saying we’ve done something wonderful… that’s what matters to me.”
+                    "\"Innovation distinguishes between a leader and a follower.\"",
+                    "\"Quality is more important than quantity. One home run is much better than two doubles.\"",
+                    "\"A lot of times, people don't know what they want unless you show it to them.\"",
+                    "\"Being the richest man in the cemetery doesn’t matter to me. Going to bed at night saying we’ve done something wonderful… that’s what matters to me.\""
                 ]
             }
             
