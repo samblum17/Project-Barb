@@ -20,8 +20,8 @@ struct Project_BarbWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             QuoteView(entry: entry)
         }
-        .configurationDisplayName("- Steve Widget")
-        .description("Get daily, inspirational quotes from Steve Jobs delivered straight to your home screen. Tap the widget to view a list of some of Steve's most memorable quotes.")
+        .configurationDisplayName("Quote Widget")
+        .description("Get inspirational quotes from Steve Jobs delivered straight to your home screen. The widget intelligently cycles through some of Steve's most memorable quotes every few days. Tap the widget to open the app and expand today's quote.")
     }
 }
 
@@ -39,14 +39,16 @@ struct QuoteView : View {
         ZStack {
             Color(.systemBackground)
             Text(entry.quote)
-                .font(.system(.title2, design: .default))
-                .italic()
+                .font(.system(.title, design: .rounded))
+                .padding(.horizontal)
         }
     }
 }
 
 //Timeline
 struct Provider: TimelineProvider {
+    let fetcher = FetchDecodedJSON()
+
     func placeholder(in context: Context) -> SteveEntry {
         SteveEntry(date: Date(), quote: globalDefaultQuote)
     }
@@ -58,29 +60,27 @@ struct Provider: TimelineProvider {
     
     func getTimeline(in context: Context, completion: @escaping (Timeline<SteveEntry>) -> ()) {
         var entries: [SteveEntry] = []
-        let fetcher = FetchDecodedJSON()
         let family = context.family
         let errorQuote = "Default empty quote. Error has occurred."
         var quote: String = errorQuote
         
-        switch family {
-        case .systemSmall:
-            let randomQuote = fetcher.categories[0].quotes.randomElement()
-            quote = randomQuote ?? errorQuote
-        case .systemMedium:
-            let randomQuote = fetcher.categories[0].quotes.randomElement()
-            quote = randomQuote ?? errorQuote
-        case .systemLarge:
-            let randomQuote = fetcher.categories[1].quotes.randomElement()
-            quote = randomQuote ?? errorQuote
-        default:
-            quote = errorQuote
-        }
-        
-        
         // Generate a timeline consisting of 3 entries a day apart, starting from the current date.
         let currentDate = Date()
         for secondsOffset in 0 ..< 5 {
+            switch family {
+            case .systemSmall:
+                let randomQuote = fetcher.categories[0].quotes.randomElement()
+                quote = randomQuote ?? errorQuote
+            case .systemMedium:
+                let randomQuote = fetcher.categories[0].quotes.randomElement()
+                quote = randomQuote ?? errorQuote
+            case .systemLarge:
+                let randomQuote = fetcher.categories[1].quotes.randomElement()
+                quote = randomQuote ?? errorQuote
+            default:
+                quote = errorQuote
+            }
+            
             let entryDate = Calendar.current.date(byAdding: .second, value: secondsOffset, to: currentDate)!
             let entry = SteveEntry(date: entryDate, quote: quote)
             entries.append(entry)
@@ -112,18 +112,3 @@ struct Project_BarbWidget_Previews: PreviewProvider {
         }
     }
 }
-
-
-//Code for switching widget family if needed in QuoteView
-//@Environment(\.widgetFamily) var family: WidgetFamily
-//
-//switch family {
-//case .systemSmall:
-//    let quote = "testSmall"
-//case .systemMedium:
-//    let quote = "testMedium"
-//case .systemLarge:
-//    let quote = "testLarge"
-//default:
-//    let quote = "Error displaying view"
-//}

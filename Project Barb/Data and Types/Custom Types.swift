@@ -41,7 +41,7 @@ struct Category: Identifiable, Hashable, Codable {
     init() {
         id = 0
         family = "Small/Medium"
-        quotes = ["Hi, I'm Steve."]
+        quotes = []
     }
     //decoder init
     init(from decoder: Decoder) throws {
