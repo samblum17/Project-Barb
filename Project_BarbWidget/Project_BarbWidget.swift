@@ -9,7 +9,7 @@ import WidgetKit
 import SwiftUI
 import Intents
 
-//Main widget entry point
+//Main widget entry point, info
 @main
 struct Project_BarbWidget: Widget {
     let kind: String = "Project_BarbWidget"
@@ -34,16 +34,11 @@ struct Project_BarbWidgetEntryView : View {
     
     var body: some View {
         ZStack {
-            Text("Good morning, Sam")
+            Text("Don't let the noise of others' opinons drown out your own inner voice.")
                 .font(.system(.title2, design: .default))
-                .foregroundColor(.white)
-                .bold()
-                .position(x: /*@START_MENU_TOKEN@*/85.0/*@END_MENU_TOKEN@*/, y: 130.0)
-        }.background((Image("MugBGTest"))
-                        .resizable()
-                        .scaledToFill()
-                        .brightness(-0.25)
-        )
+                .foregroundColor(Color(UIColor.label))
+                .italic()
+        }.background(Color(UIColor.systemBackground))
     }
 }
 
@@ -61,13 +56,19 @@ struct Provider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<SteveEntry>) -> ()) {
         var entries: [SteveEntry] = []
         
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
+        // Generate a timeline consisting of 3 entries a day apart, starting from the current date.
         let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+        for secondsOffset in 0 ..< 5 {
+            let entryDate = Calendar.current.date(byAdding: .second, value: secondsOffset, to: currentDate)!
             let entry = SteveEntry(date: entryDate)
             entries.append(entry)
         }
+//FIXME- UPDATE OFFSET TO BELOW FOR PROD.
+//        for dayOffset in 0 ..< 3 {
+//            let entryDate = Calendar.current.date(byAdding: .day, value: dayOffset, to: currentDate)!
+//            let entry = SteveEntry(date: entryDate)
+//            entries.append(entry)
+//        }
         
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)

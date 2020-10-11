@@ -156,6 +156,7 @@
 			children = (
 				E4B45FA72532DD61002500BB /* Views */,
 				E4B45FA62532DD44002500BB /* Data and Types */,
+				E42F65D72529920E00D6E159 /* Info.plist */,
 				E4B45FA82532DDB2002500BB /* Helpers */,
 			);
 			path = "Project Barb";
@@ -232,7 +233,6 @@
 			isa = PBXGroup;
 			children = (
 				E42F65D22529920E00D6E159 /* Assets.xcassets */,
-				E42F65D72529920E00D6E159 /* Info.plist */,
 				E42F65DF2529920E00D6E159 /* Project BarbTests */,
 				E42F65D42529920E00D6E159 /* Preview Content */,
 				E47E8EAF252C317600CB768A /* Frameworks */,
