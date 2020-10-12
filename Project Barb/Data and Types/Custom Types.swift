@@ -52,3 +52,15 @@ struct Category: Identifiable, Hashable, Codable {
         self.quotes = try valueContainer.decode([String].self, forKey: CodingKeys.quotes)
     }
 }
+
+class CurrentQuote: ObservableObject {
+    @Published var quote: String
+    
+    init(quote: String) {
+        self.quote = quote
+    }
+    
+    init() {
+        self.quote = "\"Think Different.\""
+    }
+}

@@ -52,7 +52,7 @@ struct QuoteView : View {
                         .italic()
                         .padding(.horizontal)
                 }
-            }
+            }.widgetURL(URL(string: entry.quote))
         }
     }
 
@@ -91,7 +91,6 @@ struct Provider: TimelineProvider {
             default:
                 quote = errorQuote
             }
-
             let entryDate = Calendar.current.date(byAdding: .day, value: daysOffset, to: currentDate)!
             let entry = SteveEntry(date: entryDate, quote: quote)
             entries.append(entry)
