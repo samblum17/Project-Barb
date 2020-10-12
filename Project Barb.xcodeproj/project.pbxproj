@@ -13,6 +13,8 @@
 		E42F65D62529920E00D6E159 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E42F65D52529920E00D6E159 /* Preview Assets.xcassets */; };
 		E42F65E12529920E00D6E159 /* Project_BarbTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F65E02529920E00D6E159 /* Project_BarbTests.swift */; };
 		E42F65EC2529920E00D6E159 /* Project_BarbUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F65EB2529920E00D6E159 /* Project_BarbUITests.swift */; };
+		E445346425350A6C000705E2 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E445346325350A6C000705E2 /* UserSettings.swift */; };
+		E445346925350A70000705E2 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E445346325350A6C000705E2 /* UserSettings.swift */; };
 		E47E8EB1252C317600CB768A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47E8EB0252C317600CB768A /* WidgetKit.framework */; };
 		E47E8EB3252C317600CB768A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47E8EB2252C317600CB768A /* SwiftUI.framework */; };
 		E47E8EB6252C317600CB768A /* Project_BarbWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E8EB5252C317600CB768A /* Project_BarbWidget.swift */; };
@@ -86,6 +88,8 @@
 		E42F65E72529920E00D6E159 /* Project BarbUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Project BarbUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E42F65EB2529920E00D6E159 /* Project_BarbUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_BarbUITests.swift; sourceTree = "<group>"; };
 		E42F65ED2529920E00D6E159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E445346325350A6C000705E2 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		E445346E25351571000705E2 /* Project Barb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Project Barb.entitlements"; sourceTree = "<group>"; };
 		E47E8EAE252C317600CB768A /* Project_BarbWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Project_BarbWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47E8EB0252C317600CB768A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		E47E8EB2252C317600CB768A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -155,6 +159,7 @@
 		E42F65CD2529920B00D6E159 /* Project Barb */ = {
 			isa = PBXGroup;
 			children = (
+				E445346E25351571000705E2 /* Project Barb.entitlements */,
 				E4B45FA72532DD61002500BB /* Views */,
 				E4B45FA62532DD44002500BB /* Data and Types */,
 				E4B45FA82532DDB2002500BB /* Helpers */,
@@ -218,6 +223,7 @@
 				E4B45F942532D7C1002500BB /* RawJSONData.json */,
 				E4B45F9D2532DD16002500BB /* FetchDecodedJSON.swift */,
 				E4B45FA92532DDFE002500BB /* Custom Types.swift */,
+				E445346325350A6C000705E2 /* UserSettings.swift */,
 			);
 			path = "Data and Types";
 			sourceTree = "<group>";
@@ -407,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E47E8EBC252C317A00CB768A /* Project_BarbWidget.intentdefinition in Sources */,
+				E445346425350A6C000705E2 /* UserSettings.swift in Sources */,
 				E4B45F9E2532DD16002500BB /* FetchDecodedJSON.swift in Sources */,
 				E42F65D12529920B00D6E159 /* ContentView.swift in Sources */,
 				E4B45FAA2532DDFE002500BB /* Custom Types.swift in Sources */,
@@ -439,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B45FAD2532DDFE002500BB /* Custom Types.swift in Sources */,
+				E445346925350A70000705E2 /* UserSettings.swift in Sources */,
 				E4AD6A342534083100E75E88 /* ContentView.swift in Sources */,
 				E4B45FA12532DD16002500BB /* FetchDecodedJSON.swift in Sources */,
 				E47E8EB6252C317600CB768A /* Project_BarbWidget.swift in Sources */,
@@ -589,6 +597,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Project Barb/Project Barb.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Project Barb/Preview Content\"";
 				DEVELOPMENT_TEAM = AXQRK9KY57;
@@ -612,6 +621,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Project Barb/Project Barb.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Project Barb/Preview Content\"";
 				DEVELOPMENT_TEAM = AXQRK9KY57;

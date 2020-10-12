@@ -11,6 +11,7 @@ import Intents
 
 let globalDefaultQuote = "\"Think Different.\""
 
+
 //Main widget entry point, info
 @main
 struct Project_BarbWidget: Widget {
@@ -18,7 +19,7 @@ struct Project_BarbWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-    //Grab quote from entry, add percent encoding, send in url for content view to decode and display
+            //Grab quote from entry, add percent encoding, send in url for content view to decode and display
             QuoteView(entry: entry).widgetURL(URL(string: entry.quote.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Think-Different."))
         }
         .configurationDisplayName("Quote Widget")
@@ -36,26 +37,36 @@ struct SteveEntry: TimelineEntry {
 struct QuoteView : View {
     var entry: Provider.Entry
     @Environment(\.widgetFamily) var family: WidgetFamily
+    private let retroMode = UserDefaults(suiteName: "group.project-barb.shared-settings")?.value(forKey: "retroMode") as? Bool
     
     var body: some View {
-            ZStack {
+        ZStack {
+            if (retroMode ?? false) {
+                Image(uiImage: UIImage(imageLiteralResourceName: "retro-mode"))
+                    .resizable()
+                    .brightness(-0.20)
+            } else {
                 Color(.systemBackground)
-                if family != .systemLarge {
-                    Text(entry.quote)
-                        .font(.system(.title2, design: .rounded))
-                        //Not actually setting to italic() below but this is a workaround to show quote in full widget view with padding and wrap around on longer quotes
-                        .italic()
-                        .padding(.horizontal)
-                } else {
-                    Text(entry.quote)
-                        .font(.system(.title, design: .rounded))
-                        //Not actually setting to italic() below but this is a workaround to show quote in full widget view with padding and wrap around on longer quotes
-                        .italic()
-                        .padding(.horizontal)
-                }
+            }
+            if family != .systemLarge {
+                Text(entry.quote)
+                    .font(.system(.title2, design: .rounded))
+                    //Not actually setting to italic() below but this is a workaround to show quote in full widget view with padding and wrap around on longer quotes
+                    .italic()
+                    .padding(.horizontal)
+                    .foregroundColor(.white)
+            } else {
+                Text(entry.quote)
+                    .font(.system(.title, design: .rounded))
+                    //Not actually setting to italic() below but this is a workaround to show quote in full widget view with padding and wrap around on longer quotes
+                    .italic()
+                    .padding(.horizontal)
+                    .foregroundColor(.white)
+                
             }
         }
     }
+}
 
 //Timeline
 struct Provider: TimelineProvider {
