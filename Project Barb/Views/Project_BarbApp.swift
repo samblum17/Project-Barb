@@ -9,12 +9,13 @@ import SwiftUI
 
 @main
 struct Project_BarbApp: App {
-    @State var todaysQuote: String = "Not set yet!"
+    @State var todaysQuote: String = "\"Think Different.\""
     
     var body: some Scene {
         WindowGroup {
             ContentView(todaysQuote: $todaysQuote).onOpenURL(perform: { (url) in
-                todaysQuote = url.relativeString
+                //Remove percent encoding from url to translate to quote and update content view
+                todaysQuote = url.absoluteString.removingPercentEncoding ?? "Think Different."
                 print(todaysQuote)
             })
         }

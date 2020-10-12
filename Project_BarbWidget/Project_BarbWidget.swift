@@ -18,7 +18,8 @@ struct Project_BarbWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            QuoteView(entry: entry)
+    //Grab quote from entry, add percent encoding, send in url for content view to decode and display
+            QuoteView(entry: entry).widgetURL(URL(string: entry.quote.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Think-Different."))
         }
         .configurationDisplayName("Quote Widget")
         .description("Get inspirational quotes from Steve Jobs delivered straight to your home screen. The widget intelligently cycles through some of Steve's most memorable quotes every few days. Tap the widget to open the app and expand today's quote.")
@@ -52,7 +53,7 @@ struct QuoteView : View {
                         .italic()
                         .padding(.horizontal)
                 }
-            }.widgetURL(URL(string: entry.quote))
+            }
         }
     }
 
