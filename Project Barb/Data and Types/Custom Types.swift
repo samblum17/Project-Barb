@@ -52,4 +52,3 @@ struct Category: Identifiable, Hashable, Codable {
         self.quotes = try valueContainer.decode([String].self, forKey: CodingKeys.quotes)
     }
 }
-

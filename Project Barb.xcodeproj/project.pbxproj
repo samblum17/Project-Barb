@@ -20,6 +20,7 @@
 		E47E8EBB252C317A00CB768A /* Project_BarbWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E47E8EB7252C317600CB768A /* Project_BarbWidget.intentdefinition */; };
 		E47E8EBC252C317A00CB768A /* Project_BarbWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = E47E8EB7252C317600CB768A /* Project_BarbWidget.intentdefinition */; };
 		E47E8EBF252C317A00CB768A /* Project_BarbWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E47E8EAE252C317600CB768A /* Project_BarbWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E4AD6A342534083100E75E88 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F65D02529920B00D6E159 /* ContentView.swift */; };
 		E4B45F952532D7C1002500BB /* RawJSONData.json in Resources */ = {isa = PBXBuildFile; fileRef = E4B45F942532D7C1002500BB /* RawJSONData.json */; };
 		E4B45F962532D7C1002500BB /* RawJSONData.json in Resources */ = {isa = PBXBuildFile; fileRef = E4B45F942532D7C1002500BB /* RawJSONData.json */; };
 		E4B45F972532D7C1002500BB /* RawJSONData.json in Resources */ = {isa = PBXBuildFile; fileRef = E4B45F942532D7C1002500BB /* RawJSONData.json */; };
@@ -438,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B45FAD2532DDFE002500BB /* Custom Types.swift in Sources */,
+				E4AD6A342534083100E75E88 /* ContentView.swift in Sources */,
 				E4B45FA12532DD16002500BB /* FetchDecodedJSON.swift in Sources */,
 				E47E8EB6252C317600CB768A /* Project_BarbWidget.swift in Sources */,
 				E47E8EBB252C317A00CB768A /* Project_BarbWidget.intentdefinition in Sources */,

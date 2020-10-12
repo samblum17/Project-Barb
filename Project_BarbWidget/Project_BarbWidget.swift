@@ -37,7 +37,6 @@ struct QuoteView : View {
     @Environment(\.widgetFamily) var family: WidgetFamily
     
     var body: some View {
-        GeometryReader{g in
             ZStack {
                 Color(.systemBackground)
                 if family != .systemLarge {
@@ -56,7 +55,6 @@ struct QuoteView : View {
             }
         }
     }
-}
 
 //Timeline
 struct Provider: TimelineProvider {
@@ -93,7 +91,7 @@ struct Provider: TimelineProvider {
             default:
                 quote = errorQuote
             }
-            
+
             let entryDate = Calendar.current.date(byAdding: .day, value: daysOffset, to: currentDate)!
             let entry = SteveEntry(date: entryDate, quote: quote)
             entries.append(entry)
