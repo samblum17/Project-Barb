@@ -14,7 +14,6 @@ struct RetroView: View {
     @Environment(\.widgetFamily) var family: WidgetFamily
     
     var body: some View {
-        
         ZStack {
             Image(uiImage: UIImage(imageLiteralResourceName: "retro-mode"))
                 .resizable()

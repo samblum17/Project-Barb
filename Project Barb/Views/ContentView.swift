@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @Binding var todaysQuote: String
     @State private var showingAlert = false
-   
+    
     private static let appGroup = "group.project-barb.shared-settings"
     @AppStorage("retroMode", store: UserDefaults(suiteName: appGroup)) var retroMode = false
     

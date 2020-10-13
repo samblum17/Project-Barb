@@ -15,7 +15,7 @@ struct StandardView: View {
     
     var body: some View {
         ZStack {
-                Color(.systemBackground)
+            Color(.systemBackground)
             if family != .systemLarge {
                 Text(entry.quote)
                     .font(.system(.title2, design: .rounded))

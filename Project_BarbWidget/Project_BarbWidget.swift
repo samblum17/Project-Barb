@@ -39,11 +39,11 @@ struct QuoteView : View {
     private let retroMode = UserDefaults(suiteName: "group.project-barb.shared-settings")?.value(forKey: "retroMode") as? Bool
     
     var body: some View {
-            if ((retroMode ?? false) == true) {
-                RetroView(entry: entry, family: _family)
-            } else {
-                StandardView(entry: entry, family: _family)
-            }
+        if ((retroMode ?? false) == true) {
+            RetroView(entry: entry, family: _family)
+        } else {
+            StandardView(entry: entry, family: _family)
+        }
     }
 }
 
