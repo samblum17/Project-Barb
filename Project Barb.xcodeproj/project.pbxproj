@@ -15,6 +15,12 @@
 		E42F65EC2529920E00D6E159 /* Project_BarbUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42F65EB2529920E00D6E159 /* Project_BarbUITests.swift */; };
 		E445346425350A6C000705E2 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E445346325350A6C000705E2 /* UserSettings.swift */; };
 		E445346925350A70000705E2 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E445346325350A6C000705E2 /* UserSettings.swift */; };
+		E445347F25351A87000705E2 /* RetroWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E445347325351901000705E2 /* RetroWidgetView.swift */; };
+		E445348825351A8D000705E2 /* StandardWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E445347925351914000705E2 /* StandardWidgetView.swift */; };
+		E4453493253524CF000705E2 /* RetroMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4453492253524CF000705E2 /* RetroMainView.swift */; };
+		E4453499253524ED000705E2 /* StandardMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4453498253524ED000705E2 /* StandardMainView.swift */; };
+		E445349E253526B6000705E2 /* RetroMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4453492253524CF000705E2 /* RetroMainView.swift */; };
+		E44534A3253526BA000705E2 /* StandardMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4453498253524ED000705E2 /* StandardMainView.swift */; };
 		E47E8EB1252C317600CB768A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47E8EB0252C317600CB768A /* WidgetKit.framework */; };
 		E47E8EB3252C317600CB768A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E47E8EB2252C317600CB768A /* SwiftUI.framework */; };
 		E47E8EB6252C317600CB768A /* Project_BarbWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E8EB5252C317600CB768A /* Project_BarbWidget.swift */; };
@@ -90,6 +96,11 @@
 		E42F65ED2529920E00D6E159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E445346325350A6C000705E2 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		E445346E25351571000705E2 /* Project Barb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Project Barb.entitlements"; sourceTree = "<group>"; };
+		E445347325351901000705E2 /* RetroWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroWidgetView.swift; sourceTree = "<group>"; };
+		E445347925351914000705E2 /* StandardWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardWidgetView.swift; sourceTree = "<group>"; };
+		E445348D25352385000705E2 /* Project_BarbWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Project_BarbWidgetExtension.entitlements; sourceTree = "<group>"; };
+		E4453492253524CF000705E2 /* RetroMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetroMainView.swift; sourceTree = "<group>"; };
+		E4453498253524ED000705E2 /* StandardMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardMainView.swift; sourceTree = "<group>"; };
 		E47E8EAE252C317600CB768A /* Project_BarbWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Project_BarbWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47E8EB0252C317600CB768A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		E47E8EB2252C317600CB768A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -139,6 +150,7 @@
 		E42F65C22529920B00D6E159 = {
 			isa = PBXGroup;
 			children = (
+				E445348D25352385000705E2 /* Project_BarbWidgetExtension.entitlements */,
 				E42F65CD2529920B00D6E159 /* Project Barb */,
 				E47E8EB4252C317600CB768A /* Project_BarbWidget */,
 				E42F65CC2529920B00D6E159 /* Products */,
@@ -210,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				E47E8EB5252C317600CB768A /* Project_BarbWidget.swift */,
+				E445347325351901000705E2 /* RetroWidgetView.swift */,
+				E445347925351914000705E2 /* StandardWidgetView.swift */,
 				E47E8EB7252C317600CB768A /* Project_BarbWidget.intentdefinition */,
 				E47E8EB8252C317A00CB768A /* Assets.xcassets */,
 				E47E8EBA252C317A00CB768A /* Info.plist */,
@@ -233,6 +247,8 @@
 			children = (
 				E42F65CE2529920B00D6E159 /* Project_BarbApp.swift */,
 				E42F65D02529920B00D6E159 /* ContentView.swift */,
+				E4453492253524CF000705E2 /* RetroMainView.swift */,
+				E4453498253524ED000705E2 /* StandardMainView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -414,9 +430,11 @@
 			files = (
 				E47E8EBC252C317A00CB768A /* Project_BarbWidget.intentdefinition in Sources */,
 				E445346425350A6C000705E2 /* UserSettings.swift in Sources */,
+				E4453499253524ED000705E2 /* StandardMainView.swift in Sources */,
 				E4B45F9E2532DD16002500BB /* FetchDecodedJSON.swift in Sources */,
 				E42F65D12529920B00D6E159 /* ContentView.swift in Sources */,
 				E4B45FAA2532DDFE002500BB /* Custom Types.swift in Sources */,
+				E4453493253524CF000705E2 /* RetroMainView.swift in Sources */,
 				E42F65CF2529920B00D6E159 /* Project_BarbApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,12 +463,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E445349E253526B6000705E2 /* RetroMainView.swift in Sources */,
 				E4B45FAD2532DDFE002500BB /* Custom Types.swift in Sources */,
 				E445346925350A70000705E2 /* UserSettings.swift in Sources */,
 				E4AD6A342534083100E75E88 /* ContentView.swift in Sources */,
+				E445348825351A8D000705E2 /* StandardWidgetView.swift in Sources */,
 				E4B45FA12532DD16002500BB /* FetchDecodedJSON.swift in Sources */,
+				E44534A3253526BA000705E2 /* StandardMainView.swift in Sources */,
 				E47E8EB6252C317600CB768A /* Project_BarbWidget.swift in Sources */,
 				E47E8EBB252C317A00CB768A /* Project_BarbWidget.intentdefinition in Sources */,
+				E445347F25351A87000705E2 /* RetroWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,6 +750,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = Project_BarbWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AXQRK9KY57;
 				INFOPLIST_FILE = Project_BarbWidget/Info.plist;
@@ -749,6 +772,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = Project_BarbWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AXQRK9KY57;
 				INFOPLIST_FILE = Project_BarbWidget/Info.plist;

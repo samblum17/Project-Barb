@@ -7,7 +7,6 @@
 
 import WidgetKit
 import SwiftUI
-import Intents
 
 let globalDefaultQuote = "\"Think Different.\""
 
@@ -40,31 +39,11 @@ struct QuoteView : View {
     private let retroMode = UserDefaults(suiteName: "group.project-barb.shared-settings")?.value(forKey: "retroMode") as? Bool
     
     var body: some View {
-        ZStack {
-            if (retroMode ?? false) {
-                Image(uiImage: UIImage(imageLiteralResourceName: "retro-mode"))
-                    .resizable()
-                    .brightness(-0.20)
+            if ((retroMode ?? false) == true) {
+                RetroView(entry: entry, family: _family)
             } else {
-                Color(.systemBackground)
+                StandardView(entry: entry, family: _family)
             }
-            if family != .systemLarge {
-                Text(entry.quote)
-                    .font(.system(.title2, design: .rounded))
-                    //Not actually setting to italic() below but this is a workaround to show quote in full widget view with padding and wrap around on longer quotes
-                    .italic()
-                    .padding(.horizontal)
-                    .foregroundColor(.white)
-            } else {
-                Text(entry.quote)
-                    .font(.system(.title, design: .rounded))
-                    //Not actually setting to italic() below but this is a workaround to show quote in full widget view with padding and wrap around on longer quotes
-                    .italic()
-                    .padding(.horizontal)
-                    .foregroundColor(.white)
-                
-            }
-        }
     }
 }
 
