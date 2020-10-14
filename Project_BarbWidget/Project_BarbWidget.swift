@@ -22,7 +22,7 @@ struct Project_BarbWidget: Widget {
             QuoteView(entry: entry).widgetURL(URL(string: entry.quote.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Think-Different."))
         }
         .configurationDisplayName("Quote Widget")
-        .description("Get inspirational quotes from Steve Jobs delivered straight to your home screen. The widget intelligently cycles through some of Steve's most memorable quotes every few days. Tap the widget to open the app and expand today's quote.")
+        .description("Get inspirational quotes from Steve Jobs delivered right to your home screen. This widget intelligently cycles through some of Steve's most memorable quotes every few days and matches the retro mode setting set in the app. Tap the widget to open the app and expand today's quote.")
     }
 }
 
