@@ -7,9 +7,9 @@
 
 import WidgetKit
 import SwiftUI
-import Intents
 
 let globalDefaultQuote = "\"Think Different.\""
+
 
 //Main widget entry point, info
 @main
@@ -18,10 +18,11 @@ struct Project_BarbWidget: Widget {
     
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
-            QuoteView(entry: entry)
+            //Grab quote from entry, add percent encoding, send in url for content view to decode and display
+            QuoteView(entry: entry).widgetURL(URL(string: entry.quote.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "Think-Different."))
         }
         .configurationDisplayName("Quote Widget")
-        .description("Get inspirational quotes from Steve Jobs delivered straight to your home screen. The widget intelligently cycles through some of Steve's most memorable quotes every few days. Tap the widget to open the app and expand today's quote.")
+        .description("Get inspirational quotes from Steve Jobs delivered right to your home screen. This widget intelligently cycles through some of Steve's most memorable quotes every few days and matches the retro mode setting set in the app. Tap the widget to open the app and expand today's quote.")
     }
 }
 
@@ -35,25 +36,13 @@ struct SteveEntry: TimelineEntry {
 struct QuoteView : View {
     var entry: Provider.Entry
     @Environment(\.widgetFamily) var family: WidgetFamily
+    private let retroMode = UserDefaults(suiteName: "group.project-barb.shared-settings")?.value(forKey: "retroMode") as? Bool
     
     var body: some View {
-        GeometryReader{g in
-            ZStack {
-                Color(.systemBackground)
-                if family != .systemLarge {
-                    Text(entry.quote)
-                        .font(.system(.title2, design: .rounded))
-                        //Not actually setting to italic() below but this is a workaround to show quote in full widget view with padding and wrap around on longer quotes
-                        .italic()
-                        .padding(.horizontal)
-                } else {
-                    Text(entry.quote)
-                        .font(.system(.title, design: .rounded))
-                        //Not actually setting to italic() below but this is a workaround to show quote in full widget view with padding and wrap around on longer quotes
-                        .italic()
-                        .padding(.horizontal)
-                }
-            }
+        if ((retroMode ?? false) == true) {
+            RetroView(entry: entry, family: _family)
+        } else {
+            StandardView(entry: entry, family: _family)
         }
     }
 }
@@ -76,10 +65,12 @@ struct Provider: TimelineProvider {
         let family = context.family
         let errorQuote = "Default empty quote. Error has occurred."
         var quote: String = errorQuote
+        let threeDays: TimeInterval = 86400*3
         
-        // Generate a timeline consisting of 3 entries a day apart, starting from the current date.
-        let currentDate = Date()
-        for daysOffset in 0 ..< 3 {
+        // Generate a timeline consisting of 3 entries, three days apart, starting from the current date
+        var entryDate = Date()
+        let endDate = Calendar.current.date(byAdding: .day, value: 3, to: entryDate)
+        while entryDate < endDate! {
             switch family {
             case .systemSmall:
                 let randomQuote = fetcher.categories[0].quotes.randomElement()
@@ -93,12 +84,11 @@ struct Provider: TimelineProvider {
             default:
                 quote = errorQuote
             }
-            
-            let entryDate = Calendar.current.date(byAdding: .day, value: daysOffset, to: currentDate)!
             let entry = SteveEntry(date: entryDate, quote: quote)
             entries.append(entry)
+            entryDate += threeDays
         }
-        
+        //Set timeline and reload after 3 days
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }

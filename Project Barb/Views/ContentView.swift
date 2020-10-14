@@ -8,14 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Binding var todaysQuote: String
+    @State private var showingAlert = false
+    
+    private static let appGroup = "group.project-barb.shared-settings"
+    @AppStorage("retroMode", store: UserDefaults(suiteName: appGroup)) var retroMode = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if (retroMode) {
+            RetroMainView(todaysQuote: $todaysQuote, showingAlert: $showingAlert)
+        } else {
+            StandardMainView(todaysQuote: $todaysQuote, showingAlert: $showingAlert)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(todaysQuote: .constant("\"Think Different.\""))
     }
 }

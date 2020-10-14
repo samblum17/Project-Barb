@@ -53,3 +53,15 @@ struct Category: Identifiable, Hashable, Codable {
     }
 }
 
+//Test storing with publisher
+class CurrentQuote: ObservableObject {
+    @Published var quote: String
+    
+    init(quote: String) {
+        self.quote = quote
+    }
+    
+    init() {
+        self.quote = "\"Think Different.\""
+    }
+}
