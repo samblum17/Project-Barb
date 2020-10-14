@@ -21,16 +21,16 @@ class FetchDecodedJSON {
     
     func loadData() {
         print ("data loaded successfully")
-//Access file from bundle and pull out data
+        //Access file from bundle and pull out data
         let bundle = Bundle(for: type(of: self))
         guard let url = bundle.url(forResource: "RawJSONData", withExtension: "json") else {return}
-
+        
         guard let data = try? Data(contentsOf: url) else {return}
-
+        
         let decoder = JSONDecoder()
-//Decode from JSON to custom Swift types
+        //Decode from JSON to custom Swift types
         guard let quotesData = try? decoder.decode([NestedJSON].self, from: data) else {return}
-//Store into variables for use in main content view
+        //Store into variables for use in main content view
         let nestedIgnore = quotesData
         self.categories = nestedIgnore[0].data! //force unwrap for testing
         print(categories)

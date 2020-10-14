@@ -67,7 +67,7 @@ struct Provider: TimelineProvider {
         var quote: String = errorQuote
         let oneDay: TimeInterval = 86400
         
-// Generate a timeline consisting of 3 entries, one day apart, starting from the current date
+        // Generate a timeline consisting of 3 entries, one day apart, starting from the current date
         var entryDate = Date()
         let endDate = Calendar.current.date(byAdding: .day, value: 3, to: entryDate)
         while entryDate < endDate! {
@@ -88,7 +88,7 @@ struct Provider: TimelineProvider {
             entries.append(entry)
             entryDate += oneDay
         }
-//Set timeline and reload after 3 days
+        //Set timeline and reload after 3 days
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
