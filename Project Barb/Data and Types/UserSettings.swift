@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+//Backup user defaults access for retroMode setting
 class UserSettings: ObservableObject {
     @Published var retroMode: Bool {
         didSet {

@@ -9,8 +9,7 @@
 import Foundation
 import Combine
 
-//Class for fetching data from API to load into main content view
-
+//Class for fetching data from raw json to load into widget
 class FetchDecodedJSON {
     
     var categories = [Category()]
@@ -32,7 +31,7 @@ class FetchDecodedJSON {
         guard let quotesData = try? decoder.decode([NestedJSON].self, from: data) else {return}
         //Store into variables for use in main content view
         let nestedIgnore = quotesData
-        self.categories = nestedIgnore[0].data! //force unwrap for testing
+        self.categories = nestedIgnore[0].data! //guranteed with local file implementation of json
         print(categories)
     }
 }
