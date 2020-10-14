@@ -20,7 +20,6 @@ struct RetroMainView: View{
         ZStack{
             Image(uiImage: UIImage(imageLiteralResourceName: "retro-mode"))
                 .resizable()
-//                .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
                 .brightness(-0.2)
             VStack{

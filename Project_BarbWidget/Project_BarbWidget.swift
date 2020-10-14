@@ -65,10 +65,12 @@ struct Provider: TimelineProvider {
         let family = context.family
         let errorQuote = "Default empty quote. Error has occurred."
         var quote: String = errorQuote
+        let oneDay: TimeInterval = 86400
         
-        // Generate a timeline consisting of 3 entries a day apart, starting from the current date.
-        let currentDate = Date()
-        for daysOffset in 0 ..< 3 {
+// Generate a timeline consisting of 3 entries, one day apart, starting from the current date
+        var entryDate = Date()
+        let endDate = Calendar.current.date(byAdding: .day, value: 3, to: entryDate)
+        while entryDate < endDate! {
             switch family {
             case .systemSmall:
                 let randomQuote = fetcher.categories[0].quotes.randomElement()
@@ -82,11 +84,11 @@ struct Provider: TimelineProvider {
             default:
                 quote = errorQuote
             }
-            let entryDate = Calendar.current.date(byAdding: .day, value: daysOffset, to: currentDate)!
             let entry = SteveEntry(date: entryDate, quote: quote)
             entries.append(entry)
+            entryDate += oneDay
         }
-        
+//Set timeline and reload after 3 days
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
