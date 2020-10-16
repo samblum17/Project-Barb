@@ -1,8 +1,9 @@
-![alt text](https://github.com/samblum17/Project-Barb/blob/main/Project_BarbWidget/Assets.xcassets/-%20Steve%20Logo.png = 250x250)
+<img src="https://github.com/samblum17/Project-Barb/blob/main/Project_BarbWidget/Assets.xcassets/-%20Steve%20Logo.png" width="100">
 # - Steve
 ###### ~Celebrate the legacy of Steve Jobs~
 Get Steve's most memorable quotes delivered right on your home screen in a sleek and simple widget.
 ![alt text](https://github.com/samblum17/Project-Barb/blob/main/Project_BarbWidget/Assets.xcassets/IMG_9128.jpeg)
+<img src="https://github.com/samblum17/Project-Barb/blob/main/Project_BarbWidget/Assets.xcassets/IMG_9128.jpeg" width="900">
 
 #### Widget & App Highlights:
 - Intelligently cycles through inspirational Steve Jobs' quotes every few days 
