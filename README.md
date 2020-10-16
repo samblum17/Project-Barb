@@ -14,7 +14,7 @@ Get Steve's most memorable quotes delivered right on your home screen in a sleek
 Whether you're a Steve enthusiast, looking for some daily motivation, or both, - Steve is designed to enhance your home screen and inspire your creativity.
 
 ## Prerequisites
-- Steve is an iOS Application that is designed to run on iOS 14+ 
+"- Steve" is an iOS Application and Widget that requires an iOS device running iOS 14+.
 
 ## Development Process
 Codenamed "Project Barb", - Steve was built with the objectives of learning WidgetKit and continuing to sharpen SwiftUI skills. Though it did not land on the App Store, - Steve is fully fledged out and sits beautifully on the home screen. Using a Notion workspace, I managed a kanban board for the project from start to finish over a 6 day period following strict deadlines and priorities to practice project management methodoligies. Project Barb was developed in Xcode 12.0 and utilized Git and GitHub for source control. The quotations are stored in a JSON file with the repository, and the widget intelligently pulled a random item from the JSON tree to display and update in the app. The state of retro mode is managed using UserDefaults and the new @AppStorage property in SwiftUI/Xcode 12.0+. The app was fully tested and reviewed before completion.
