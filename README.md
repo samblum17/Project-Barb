@@ -29,4 +29,4 @@ Grit, humility, and a constant drive to always be better push me to seek new opp
 
 //Note that this repository will not show commits from 10/15/2020 onward. Please contact the developer for questions regarding Versions past 1.0.
 
-Questions? Don't hesistate to reach out on [LinkedIn](https://www.linkedin.com/in/samblum17/) or email samblum17@icloud.com.
+Feel free to reach out to me on [LinkedIn](https://www.linkedin.com/in/samblum17/) or email samblum17@icloud.com.
